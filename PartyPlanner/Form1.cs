@@ -62,6 +62,8 @@ namespace PartyPlanner
         {
             oBirthdayParty.NumberOfPeople = (int)m_NumberOfPeopleBDay.Value;
             oBirthdayParty.CalculateCostOfDecorations(m_FancyDecorationsBDay.Checked);
+            if (m_NumberOfPeopleBDay.Value <= 4) m_CakeWritingBox.MaxLength = 16;
+            else m_CakeWritingBox.MaxLength = 40;
             DisplayBirtdayPartyCost();
         }
 
@@ -73,8 +75,6 @@ namespace PartyPlanner
 
         private void m_CakeWritingBox_TextChanged(object sender, EventArgs e)
         {
-            if (m_NumberOfPeopleBDay.Value <= 4) m_CakeWritingBox.MaxLength = 16;
-            else m_CakeWritingBox.MaxLength = 40;
             oBirthdayParty.WriteOnCake(this.m_CakeWritingBox.TextLength);
             DisplayBirtdayPartyCost();
         }
