@@ -21,7 +21,6 @@ namespace PartyPlanner
             DisplayDinnerPartyCost();
             oBirthdayParty = new BirthdayParty((int)m_NumberOfPeopleBDay.Value, m_FancyDecorationsBDay.Checked);
             DisplayBirtdayPartyCost();
-
         }
 
         private void DisplayDinnerPartyCost()
@@ -62,8 +61,8 @@ namespace PartyPlanner
         {
             oBirthdayParty.NumberOfPeople = (int)m_NumberOfPeopleBDay.Value;
             oBirthdayParty.CalculateCostOfDecorations(m_FancyDecorationsBDay.Checked);
-            if (m_NumberOfPeopleBDay.Value <= 4) m_CakeWritingBox.MaxLength = 16;
-            else m_CakeWritingBox.MaxLength = 40;
+            if (m_NumberOfPeopleBDay.Value <= 4) m_CakeWritingBox.MaxLength = 16; // Not very well encapsulated, this should be handled by the object itself
+            else m_CakeWritingBox.MaxLength = 40; // same as above comment. However, on the other hand, this was far easier to do than to handle it via the BDay object...
             DisplayBirtdayPartyCost();
         }
 
