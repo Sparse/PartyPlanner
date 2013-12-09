@@ -15,16 +15,18 @@ namespace PartyPlanner
         private const int mFoodCostPerPerson = 25;
         private decimal mBeverageCostPerPerson;
         private decimal mCostOfDecorations;
-        
 
 
+        #region Ctor
         public DinnerParty(int pNumberOfPeople, bool pHealthyChecked, bool pFancyChecked)
         {
             this.mNumberOfPeople = pNumberOfPeople;
             SetHealthyOption(pHealthyChecked);
             CalculateDecorationsCost(pFancyChecked);
         }
+        #endregion
 
+        #region Cost Calculations
         public void SetHealthyOption(bool pHealthySelected)
         {
             if (pHealthySelected) mBeverageCostPerPerson = 20.00M;
@@ -43,5 +45,6 @@ namespace PartyPlanner
             if (!pHealthySelected) return totalcost * .95M;
             else return totalcost;
         }
+        #endregion
     }
 }
