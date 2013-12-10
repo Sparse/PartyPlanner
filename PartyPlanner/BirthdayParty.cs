@@ -40,8 +40,10 @@ namespace PartyPlanner
 
         public decimal TotalCostOfParty()
         {
-           decimal totalCost = (mNumberOfLettersOnCake * .25M) + ((mNumberOfPeople * mCostOfDecorations) + (mNumberOfPeople * mCostOfFoodPerPerson)) + mCostOfCake;
-           return totalCost;       
+            decimal totalCost;
+            if (mNumberOfPeople >= 12) totalCost = totalCost = (mNumberOfLettersOnCake * .25M) + ((mNumberOfPeople * mCostOfDecorations) + (mNumberOfPeople * mCostOfFoodPerPerson)) + mCostOfCake + 100M; 
+            else totalCost = (mNumberOfLettersOnCake * .25M) + ((mNumberOfPeople * mCostOfDecorations) + (mNumberOfPeople * mCostOfFoodPerPerson)) + mCostOfCake;
+            return totalCost;       
         }
         
     }

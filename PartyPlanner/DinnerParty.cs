@@ -41,9 +41,11 @@ namespace PartyPlanner
 
         public decimal TotalCost(bool pHealthySelected)
         {
-            decimal totalcost = mCostOfDecorations + ((mBeverageCostPerPerson + mFoodCostPerPerson) * NumberOfPeople);
-            if (!pHealthySelected) return totalcost * .95M;
-            else return totalcost;
+            decimal totalCost;
+            if (mNumberOfPeople >= 12) totalCost = mCostOfDecorations + ((mBeverageCostPerPerson + mFoodCostPerPerson) * NumberOfPeople) + 100M;
+            else totalCost = mCostOfDecorations + ((mBeverageCostPerPerson + mFoodCostPerPerson) * NumberOfPeople);
+            if (!pHealthySelected) return totalCost * .95M;
+            else return totalCost;
         }
         #endregion
     }
